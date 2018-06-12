@@ -25,14 +25,14 @@ generator = cms.EDFilter("Pythia8PtCustomYGun",
        pythia8CP5SettingsBlock,
        processParameters = cms.vstring(
             #'absPDGCode:new = Name antiName spin charge colour m0 mWidth mMin mMax tau0'
-            '100541:new = B_c(2S)+ B_c(2S)- 1 3 0 6.8670000e+00 0.0050000e+00 6.817 6.917 0.0000000e+00',
+            '100541:new = X_b X_b* 1 0 0 6.8670000e+00 0.0050000e+00 6.817 6.917 0.0000000e+00',
             '100541:isResonance = false',
-            '100541:addChannel = 1 1.0 0 541 211 -211',
+            '100541:addChannel = 1 1.0 0 20553 211 -211',
 	    '100541:mayDecay = on',
-	    '541:onMode = off',
-	    '541:onIfMatch = 443 211',
-	    '443:onMode = off',
-	    '443:onIfMatch = 13 -13'
+	    '20553:onMode = off',
+	    '20553:onIfMatch = 553 gamma',
+	    '553:onMode = off',
+	    '553:onIfMatch = 13 -13'
        ),
        parameterSets = cms.vstring('pythia8CommonSettings',
                                    'pythia8CP5Settings',
