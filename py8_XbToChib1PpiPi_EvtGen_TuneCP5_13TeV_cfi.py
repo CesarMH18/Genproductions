@@ -1,5 +1,6 @@
 # cfg file for X_b -> Chib(1P) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
-#
+#The mass of the chi_b0(1P) is set to 10.5 GeV (desired resonant mass)
+
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
@@ -13,14 +14,14 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            list_forced_decays = cms.vstring('myX_b'),        # will force one at the time
-            operates_on_particles = cms.vint32(10551),                  # we care just about our signal particles
+            list_forced_decays = cms.vstring('myX_b'),        # will force
+            operates_on_particles = cms.vint32(10551),        # chi_b0 id=10551 we care just about our signal particles
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
 Particle Upsilon 9.4603000 0.00005402
 Particle chi_b1  9.8927800 0.00000
-Particle chi_b0  10.500000 0.00000
+Particle chi_b0  10.500000 0.00000.   Fix mass to 10.5 GeV
 
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
@@ -67,7 +68,7 @@ Enddecay
 # We will filter for chi_b1
 
 pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
-    ParticleID = cms.untracked.vint32(20553),
+    ParticleID = cms.untracked.vint32(20553),   #id chi_b1(IP) =20553
     MinPt = cms.untracked.vdouble(0.0, 0.0),
     MinEta = cms.untracked.vdouble(-9., -9.),
     MaxEta = cms.untracked.vdouble(9., 9.),
