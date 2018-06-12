@@ -13,7 +13,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            list_forced_decays = cms.vstring('mychi_b1','mychi_b2'),        # will force one at the time
+            list_forced_decays = cms.vstring('myX_b','mychi_b1','mychi_b2'),        # will force one at the time
             operates_on_particles = cms.vint32(20553,555),                  # we care just about our signal particles
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
@@ -24,6 +24,7 @@ Particle chi_b2 10.26865 0.00000
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
 Alias mychi_b2 chi_b2
+Alias myX_b 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
 Enddecay
