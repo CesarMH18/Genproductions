@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
-generator = cms.EDFilter("Pythia8PtCustomYGun",
+generator = cms.EDFilter("Pythia8PtGun",
     maxEventsToPrint = cms.untracked.int32(5),
     pythiaPylistVerbosity = cms.untracked.int32(1),
     pythiaHepMCVerbosity = cms.untracked.bool(True),
@@ -13,9 +13,9 @@ generator = cms.EDFilter("Pythia8PtCustomYGun",
         MinPt = cms.double(8.),
         ParticleID = cms.vint32(10551),
         AddAntiParticle = cms.bool(False), 
-        MaxY = cms.double(2.4),
+        MaxEta = cms.double(2.4),
         MaxPhi = cms.double(3.14159265359),
-        MinY = cms.double(-2.4),
+        MinEta = cms.double(-2.4),
         MinPhi = cms.double(-3.14159265359),
    ),
 
