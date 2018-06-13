@@ -5,12 +5,6 @@ import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
-etafilter = cms.EDFilter("PythiaFilter",
-        MaxEta = cms.untracked.double(9999.0),
-        MinEta = cms.untracked.double(-9999.0),
-        ParticleID = cms.untracked.int32(10551)
-)
-
 
 generator = cms.EDFilter("Pythia8GeneratorFilter",
     pythiaPylistVerbosity = cms.untracked.int32(1),
@@ -39,4 +33,4 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
     )
 )
 
-ProductionFilterSequence = cms.Sequence(generator+etafilter)
+ProductionFilterSequence = cms.Sequence(generator)
