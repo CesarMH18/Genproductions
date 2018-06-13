@@ -11,13 +11,12 @@ generator = cms.EDFilter("Pythia8PtCustomYGun",
     PGunParameters = cms.PSet(
         MaxPt = cms.double(100.),
         MinPt = cms.double(8.),
-        ParticleID = cms.vint32(100541),
+        ParticleID = cms.vint32(10551),
         AddAntiParticle = cms.bool(False), 
         MaxY = cms.double(2.4),
         MaxPhi = cms.double(3.14159265359),
         MinY = cms.double(-2.4),
         MinPhi = cms.double(-3.14159265359),
-        TFunction_string = cms.string('x*((1.+1./(3.357-2.)*x*x/2.085)^(-3.357))'),  #This if J/psi pT
    ),
 
    PythiaParameters = cms.PSet(
@@ -25,10 +24,10 @@ generator = cms.EDFilter("Pythia8PtCustomYGun",
        pythia8CP5SettingsBlock,
        processParameters = cms.vstring(
             #'absPDGCode:new = Name antiName spin charge colour m0 mWidth mMin mMax tau0'
-            '100541:new = X_b X_b* 1 0 0 6.8670000e+00 0.0050000e+00 6.817 6.917 0.0000000e+00',
-            '100541:isResonance = false',
-            '100541:addChannel = 1 1.0 0 20553 211 -211',
-	    '100541:mayDecay = on',
+            '10551:new = X_b X_b* 1 0 0 10.50000e+00 0.0000000e+00 10.4 10.6 0.0000000e+00',
+            '10551:isResonance = false',
+            '10551:addChannel = 1 1.0 0 20553 211 -211',
+	    '10551:mayDecay = on',
 	    '20553:onMode = off',
 	    '20553:onIfMatch = 553 gamma',
 	    '553:onMode = off',
@@ -72,4 +71,4 @@ bc2sgenfilter = cms.EDFilter("PythiaDauVFilter",
     verbose = cms.untracked.int32(0)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*bc2sgenfilter*bcgenfilter*mumugenfilter)
+ProductionFilterSequence = cms.Sequence(generator)
