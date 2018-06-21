@@ -79,7 +79,7 @@ pwaveMassfilter = cms.EDFilter("MCParticlePairFilter",
     ParticleID1 = cms.untracked.vint32(553),
     ParticleID2 = cms.untracked.vint32(22),
     MinInvMass = cms.untracked.double(9.88),
-    MaxInvMass = cms.untracked.double(9.91),
+    MaxInvMass = cms.untracked.double(9.90),
 )
 
 # Next two muon filter are derived from muon reconstruction
