@@ -81,7 +81,7 @@ pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
 
 pwaveMassfilter = cms.EDFilter("MCParticlePairFilter",
     Status = cms.untracked.vint32(2, 1),
-    MinPt = cms.untracked.vdouble(7.5, 2.0),
+    MinPt = cms.untracked.vdouble(5.0, 2.0),
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4,-2.4),
     ParticleCharge = cms.untracked.int32(0),
