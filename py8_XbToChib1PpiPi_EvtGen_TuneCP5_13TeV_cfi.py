@@ -58,7 +58,7 @@ End
             'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on',
             'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
             'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
-            'PhaseSpace:pTHatMin = 1.',
+            'PhaseSpace:pTHatMin = 2.',
             '10551:m0 = 10.500000',        
             '10551:onMode = off'
             ),
@@ -69,6 +69,76 @@ End
     )
 )
 
+# We will filter for X_b, and chi_b1, first on the ID, then in the mass, this will constraint the photon daughter
 
+pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(10551,20553),
+    MinPt = cms.untracked.vdouble(0.0, 0.0),
+    MinEta = cms.untracked.vdouble(-9., -9.),
+    MaxEta = cms.untracked.vdouble(9., 9.),
+    Status = cms.untracked.vint32(2, 2)
+)
 
-ProductionFilterSequence = cms.Sequence(generator)
+pwaveMassfilter = cms.EDFilter("MCParticlePairFilter",
+    Status = cms.untracked.vint32(2, 1),
+    MinPt = cms.untracked.vdouble(7.9, 0.2),
+    MaxEta = cms.untracked.vdouble(1.6, 1.6),
+    MinEta = cms.untracked.vdouble(-1.6, -1.6),
+    ParticleCharge = cms.untracked.int32(0),
+    MinP = cms.untracked.vdouble(0.,0.),
+    ParticleID1 = cms.untracked.vint32(553),
+    ParticleID2 = cms.untracked.vint32(22),
+    MinInvMass = cms.untracked.double(9.88),
+    MaxInvMass = cms.untracked.double(9.91),
+)
+
+# Next two muon filter are derived from muon reconstruction
+
+muminusfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(0),
+    MinPt = cms.untracked.vdouble(2.5),
+    ParticleID = cms.untracked.int32(553),
+    ChargeConjugation = cms.untracked.bool(False),
+    MinEta = cms.untracked.vdouble(-1.6),
+    MaxEta = cms.untracked.vdouble(1.6),
+    NumberDaughters = cms.untracked.int32(1),
+    DaughterIDs = cms.untracked.vint32(-13)
+)
+
+muplusfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(0),
+    MinPt = cms.untracked.vdouble(2.5),
+    ParticleID = cms.untracked.int32(553),
+    ChargeConjugation = cms.untracked.bool(False),
+    MinEta = cms.untracked.vdouble(-1.6),
+    MaxEta = cms.untracked.vdouble(1.6),
+    NumberDaughters = cms.untracked.int32(1),
+    DaughterIDs = cms.untracked.vint32(13)
+)
+
+#  two pion filter 
+
+piminusfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(0),
+    MinPt = cms.untracked.vdouble(2),
+    ParticleID = cms.untracked.int32(10551),
+    ChargeConjugation = cms.untracked.bool(False),
+    MinEta = cms.untracked.vdouble(-1.6),
+    MaxEta = cms.untracked.vdouble(1.6),
+    NumberDaughters = cms.untracked.int32(1),
+    DaughterIDs = cms.untracked.vint32(-211)
+)
+
+piplusfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(0),
+    MinPt = cms.untracked.vdouble(2),
+    ParticleID = cms.untracked.int32(10551),
+    ChargeConjugation = cms.untracked.bool(False),
+    MinEta = cms.untracked.vdouble(-1.6),
+    MaxEta = cms.untracked.vdouble(1.6, -1.2, 1.2),
+    NumberDaughters = cms.untracked.int32(1),
+    DaughterIDs = cms.untracked.vint32(211)
+)
+
+ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+)
