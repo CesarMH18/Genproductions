@@ -69,6 +69,14 @@ pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
     Status = cms.untracked.vint32(2)
 )
 
+upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(100553),
+    MinPt = cms.untracked.vdouble(5.0),
+    MinEta = cms.untracked.vdouble(-2.4.),
+    MaxEta = cms.untracked.vdouble(2.4),
+    Status = cms.untracked.vint32(2)
+)
+
 
 # Next two muon filter are derived from muon reconstruction
 
@@ -77,8 +85,8 @@ muminusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(2.5),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-1.6),
-    MaxEta = cms.untracked.vdouble(1.6),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(-13)
 )
@@ -88,8 +96,8 @@ muplusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(2.5),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-1.6),
-    MaxEta = cms.untracked.vdouble(1.6),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(13)
 )
@@ -101,8 +109,8 @@ piminusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(2),
     ParticleID = cms.untracked.int32(10551),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-1.6),
-    MaxEta = cms.untracked.vdouble(1.6),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(-211)
 )
@@ -112,11 +120,11 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(2),
     ParticleID = cms.untracked.int32(10551),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-1.6),
-    MaxEta = cms.untracked.vdouble(1.6, -1.2, 1.2),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(211)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
-)
+ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*upsIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+
