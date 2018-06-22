@@ -6,8 +6,8 @@ from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
 generator = cms.EDFilter("Pythia8GeneratorFilter",
-    pythiaPylistVerbosity = cms.untracked.int32(2),
-    pythiaHepMCVerbosity = cms.untracked.bool(True),
+    pythiaPylistVerbosity = cms.untracked.int32(0),
+    pythiaHepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
     comEnergy = cms.double(13000.0),
     ExternalDecays = cms.PSet(
@@ -89,7 +89,7 @@ pwaveIDfilterchi = cms.EDFilter("MCSingleParticleFilter",
 
 pwaveMassfilter = cms.EDFilter("MCParticlePairFilter",
     Status = cms.untracked.vint32(2, 1),
-    MinPt = cms.untracked.vdouble(5.0, 2.0),
+    MinPt = cms.untracked.vdouble(5.0, 0.2),
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4,-2.4),
     ParticleCharge = cms.untracked.int32(0),
