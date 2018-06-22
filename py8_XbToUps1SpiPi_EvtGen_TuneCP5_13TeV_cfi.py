@@ -125,5 +125,5 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(211)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*pwaveMassfilter*upsIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*upsIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
 
