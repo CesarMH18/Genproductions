@@ -69,17 +69,12 @@ pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
     Status = cms.untracked.vint32(2)
 )
 
-pwaveMassfilter = cms.EDFilter("MCParticlePairFilter",
-    Status = cms.untracked.vint32(2, 1),
-    MinPt = cms.untracked.vdouble(7.9, 0.2),
-    MaxEta = cms.untracked.vdouble(2.4, 2.4),
-    MinEta = cms.untracked.vdouble(-2.4, -2.4),
-    ParticleCharge = cms.untracked.int32(0),
-    MinP = cms.untracked.vdouble(0.,0.),
-    ParticleID1 = cms.untracked.vint32(553),
-    ParticleID2 = cms.untracked.vint32(22),
-    MinInvMass = cms.untracked.double(9.88),
-    MaxInvMass = cms.untracked.double(9.90),
+upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(553),
+    MinPt = cms.untracked.vdouble(5.0),
+    MinEta = cms.untracked.vdouble(-2.4.),
+    MaxEta = cms.untracked.vdouble(2.4),
+    Status = cms.untracked.vint32(2)
 )
 
 # Next two muon filter are derived from muon reconstruction
@@ -130,5 +125,5 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(211)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+ProductionFilterSequence = cms.Sequence(generator*pwaveMassfilter*upsIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
 
