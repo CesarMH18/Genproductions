@@ -63,18 +63,17 @@ End
     )
 )
 
-# We will filter for X_b, and chi_b1, first on the ID, then in the mass, this will constraint the photon daughter
 
 pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
-    ParticleID = cms.untracked.vint32(10551),
+    ParticleID = cms.untracked.vint32(10551),  
     MinPt = cms.untracked.vdouble(0.0),
-    MinEta = cms.untracked.vdouble(-9.),
-    MaxEta = cms.untracked.vdouble(9.),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
     Status = cms.untracked.vint32(2)
 )
 
 upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
-    ParticleID = cms.untracked.vint32(100553),
+    ParticleID = cms.untracked.vint32(100553),  #Y(2S)
     MinPt = cms.untracked.vdouble(1.0),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
@@ -87,7 +86,7 @@ upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
 muminusfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(0),
     MinPt = cms.untracked.vdouble(2.5),
-    ParticleID = cms.untracked.int32(553),
+    ParticleID = cms.untracked.int32(100553),
     ChargeConjugation = cms.untracked.bool(False),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
@@ -98,7 +97,7 @@ muminusfilter = cms.EDFilter("PythiaDauVFilter",
 muplusfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(0),
     MinPt = cms.untracked.vdouble(2.5),
-    ParticleID = cms.untracked.int32(553),
+    ParticleID = cms.untracked.int32(100553),
     ChargeConjugation = cms.untracked.bool(False),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
