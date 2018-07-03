@@ -19,16 +19,20 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
-Particle Upsilon(2S) 10.02326 0.00003198
+Particle Upsilon(2S) 10.02326 0.0003198
 Particle chi_b0  10.500000 0.00000
+
 Alias myUpsilon Upsilon(2S)
 Alias myX_b    chi_b0 
+
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
 Enddecay
+
 Decay myX_b
 1.0   myUpsilon pi+ pi-  PHSP;
 Enddecay
+
 End
 """
             )
@@ -71,7 +75,7 @@ pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
 
 upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(100553),
-    MinPt = cms.untracked.vdouble(5.0),
+    MinPt = cms.untracked.vdouble(1.0),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
     Status = cms.untracked.vint32(2)
