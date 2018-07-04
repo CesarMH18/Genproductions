@@ -53,8 +53,8 @@ End
             'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
             'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
             'PhaseSpace:pTHatMin = 2.',
-            '10551:m0 = 10.500000',        
-            '10551:onMode = off'
+            '20553:m0 = 10.500000',        
+            '20553:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
