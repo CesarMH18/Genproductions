@@ -1,6 +1,6 @@
 # cfg file for X_b -> Chib(1P) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
 #The mass of the chi_b0(1P) is set to 10.1 GeV (desired resonant mass)
-
+#
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
@@ -23,26 +23,21 @@ Particle Upsilon 9.4603000 0.00005402
 Particle chi_b1  9.8927800 0.00000
 Particle chi_b0  10.100000 0.00000
 
-
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
 Alias myX_b    chi_b0 
-
 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
 Enddecay
 
-
 Decay mychi_b1
 1.0   gamma  myUpsilon  HELAMP 1. 0. 1. 0. -1. 0. -1. 0.;
 Enddecay
 
-
 Decay myX_b
 1.0   mychi_b1  pi+  pi-   PHSP;
 Enddecay
-
 
 End
 """
@@ -69,7 +64,7 @@ End
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
-                                    'processParameters'
+                                    'processParameters',
                                     )
     )
 )
