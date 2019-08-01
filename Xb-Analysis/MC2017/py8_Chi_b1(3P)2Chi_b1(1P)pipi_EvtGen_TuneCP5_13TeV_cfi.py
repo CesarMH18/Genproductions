@@ -21,7 +21,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 """
 Particle Upsilon 9.4603000 0.00005402
 Particle chi_b1  9.8927800 0.00000
-Particle chi_b0  10.500000 0.00000
+Particle chi_b0  10.513400 0.00000
 
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
@@ -59,7 +59,7 @@ End
             'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
             'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
             'PhaseSpace:pTHatMin = 2.',
-            '10551:m0 = 10.500000',        
+            '10551:m0 = 10.513400',        
             '10551:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
