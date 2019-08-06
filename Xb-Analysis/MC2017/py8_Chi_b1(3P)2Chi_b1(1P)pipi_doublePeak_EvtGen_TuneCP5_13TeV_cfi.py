@@ -79,13 +79,13 @@ End
 
 # We will filter for chi_b1_3P, and chi_b1, first on the ID, then in the mass, this will constraint the photon daughter
 
-#pwaveIDfilterXb = cms.EDFilter("MCSingleParticleFilter",
-#    ParticleID = cms.untracked.vint32(10551),
-#    MinPt = cms.untracked.vdouble(0.0),
-#    MinEta = cms.untracked.vdouble(-9.),
-#    MaxEta = cms.untracked.vdouble(9.),
-#    Status = cms.untracked.vint32(2)
-#)
+pwaveIDfilterXb = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(10551),
+    MinPt = cms.untracked.vdouble(0.0),
+    MinEta = cms.untracked.vdouble(-9.),
+    MaxEta = cms.untracked.vdouble(9.),
+    Status = cms.untracked.vint32(2)
+)
 
 pwaveIDfilterchi = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(20553),
@@ -157,5 +157,5 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 #ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterXb*pwaveIDfilterchi*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
-ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterchi*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterchi*pwaveMassfilter*muminusfilter*muplusfilter)
 
