@@ -26,8 +26,8 @@ Particle chi_b2  10.524000 0.00000
 
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
-Alias mychib1_3P  chi_b0 
-Alias mychib2_3P. chi_b2 
+Alias mychib1_3P chi_b0 
+Alias mychib2_3P chi_b2 
 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
