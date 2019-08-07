@@ -1,5 +1,5 @@
-# cfg file for X_b -> Chib(1P) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
-#The mass of the chi_b1(3P) is set to 10.5134 GeV (desired resonant mass)
+# cfg file for chi_b1(3P),chi_b2(3P) -> chi_b1(1P) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
+#The mass of the chi_b1(3P),chi_b2(3P) are set to 10.5134, 10.5240 GeV (desired resonant masses)
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
@@ -14,18 +14,20 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            list_forced_decays = cms.vstring('myX_b'),       
-            operates_on_particles = cms.vint32(10551),        
+            list_forced_decays = cms.vstring('mychib1_3P','mychib2_3P'),       
+            operates_on_particles = cms.vint32(10551,555),        
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
 Particle Upsilon 9.4603000 0.00005402
 Particle chi_b1  9.8927800 0.00000
 Particle chi_b0  10.513400 0.00000
+Particle chi_b2  10.524000 0.00000
 
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
-Alias myX_b    chi_b0 
+Alias mychib1_3P  chi_b0 
+Alias mychib2_3P. chi_b2 
 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
@@ -35,7 +37,11 @@ Decay mychi_b1
 1.0   gamma  myUpsilon  HELAMP 1. 0. 1. 0. -1. 0. -1. 0.;
 Enddecay
 
-Decay myX_b
+Decay mychib1_3P
+1.0   mychi_b1 pi+ pi-  PHSP;
+Enddecay
+
+Decay mychib2_3P
 1.0   mychi_b1 pi+ pi-  PHSP;
 Enddecay
 
@@ -49,18 +55,20 @@ End
         pythia8CommonSettingsBlock,
 	pythia8CUEP8M1SettingsBlock,
         processParameters = cms.vstring(
-            'Bottomonium:states(3PJ) = 10551',   
-            'Bottomonium:O(3PJ)[3P0(1)] = 0.085',
-            'Bottomonium:O(3PJ)[3S1(8)] = 0.04',
-            'Bottomonium:gg2bbbar(3PJ)[3PJ(1)]g = on',
-            'Bottomonium:qg2bbbar(3PJ)[3PJ(1)]q = on',
-            'Bottomonium:qqbar2bbbar(3PJ)[3PJ(1)]g = on',
-            'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on',
-            'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
-            'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
+            'Bottomonium:states(3PJ) = 10551,555',   
+            'Bottomonium:O(3PJ)[3P0(1)] = 0.085,0.085',
+            'Bottomonium:O(3PJ)[3S1(8)] = 0.04,0.04',
+            'Bottomonium:gg2bbbar(3PJ)[3PJ(1)]g = on,on',
+            'Bottomonium:qg2bbbar(3PJ)[3PJ(1)]q = on,on',
+            'Bottomonium:qqbar2bbbar(3PJ)[3PJ(1)]g = on,on',
+            'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on,on',
+            'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on,on',
+            'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on,on',
             'PhaseSpace:pTHatMin = 2.',
-            '10551:m0 = 10.513400',        
+            '10551:m0 = 10.513400',
+	    '555:m0 = 10.524000',
             '10551:onMode = off'
+            '555:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CUEP8M1Settings',
@@ -148,5 +156,6 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(211)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterXb*pwaveIDfilterchi*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+#ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterXb*pwaveIDfilterchi*pwaveMassfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
+ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilterchi*pwaveMassfilter*muminusfilter*muplusfilter)
 
