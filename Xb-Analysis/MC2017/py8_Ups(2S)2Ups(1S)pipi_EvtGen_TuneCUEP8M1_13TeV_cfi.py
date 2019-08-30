@@ -57,7 +57,6 @@ End
             'Bottomonium:qg2bbbar(3S1)[1S0(8)]q = on',
             'Bottomonium:qqbar2bbbar(3S1)[1S0(8)]g = on',
             'Bottomonium:gg2bbbar(3S1)[3PJ(8)]g = on',
-            'Bottomonium:gg2bbbar(3S1)[3PJ(8)]q = on',
             'Bottomonium:qqbar2bbbar(3S1)[3PJ(8)]g = on',
             'PhaseSpace:pTHatMin = 2.',
             '100553:onMode = off'
