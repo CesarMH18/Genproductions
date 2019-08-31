@@ -102,7 +102,7 @@ muminusfilter = cms.EDFilter("PythiaDauVFilter",
 
 muplusfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(0),
-    MinPt = cms.untracked.vdouble(2.5),
+    MinPt = cms.untracked.vdouble(2.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
     MinEta = cms.untracked.vdouble(-2.4),
