@@ -108,7 +108,7 @@ muonsfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 pionsfilter = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(100553),
+    MotherID = cms.untracked.int32(200553),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(223),
     ChargeConjugation = cms.untracked.bool(False),
@@ -119,5 +119,5 @@ pionsfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 
-#ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter)
-ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter)
+ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter)
+#ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter*pionsfilter)
