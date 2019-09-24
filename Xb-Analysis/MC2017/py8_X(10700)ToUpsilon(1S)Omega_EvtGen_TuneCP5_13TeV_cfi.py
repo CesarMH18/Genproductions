@@ -28,20 +28,16 @@ Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
 Enddecay
 
-Decay myUpsilon2S
-1.0   myUpsilon pi+ pi-  PHSP;
-Enddecay
-
 Decay pi0
 1.0   gamma   gamma  PHSP;
 Enddecay
 
-Decay myX
-1.0   myUpsilon  omega   PHSP;
-Enddecay
-
 Decay omega
 1.0   pi-   pi+   pi0     OMEGA_DALITZ;
+Enddecay
+
+Decay myX
+1.0   myUpsilon  omega   PHSP;
 Enddecay
 
 End
