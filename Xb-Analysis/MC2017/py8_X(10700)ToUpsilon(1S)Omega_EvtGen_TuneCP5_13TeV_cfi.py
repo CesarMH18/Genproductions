@@ -18,11 +18,11 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
+Particle Upsilon(2S) 10.7000000 0.000000
 Particle Upsilon 9.4603000 0.00005402
-Particle Upsilon(2S) 10.700000 0.00000
 
-Alias myUpsilon Upsilon
 Alias myX Upsilon(2S)
+Alias myUpsilon Upsilon
 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
@@ -66,8 +66,8 @@ End
             'Bottomonium:qg2bbbar(3S1)[3PJ(8)]q = on',
             'Bottomonium:qqbar2bbbar(3S1)[3PJ(8)]g = on',
             'Bottomonium:gg2bbbar(3S1)[3S1(1)]gm = on',
-            'PhaseSpace:pTHatMin =0.0',
-            '100553:m0 = 10.700000',
+            'PhaseSpace:pTHatMin = 0.0',
+            '100553:m0 = 10.7000000',
             '100553:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
