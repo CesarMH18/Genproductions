@@ -14,8 +14,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            list_forced_decays = cms.vstring('myUps2S'),       
-            operates_on_particles = cms.vint32(100553),        
+            list_forced_decays = cms.vstring('myUps2S'),
+            operates_on_particles = cms.vint32(100553),
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
@@ -43,7 +43,7 @@ End
         pythia8CommonSettingsBlock,
 	pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
-            'Bottomonium:states(3S1) = 100553', 
+            'Bottomonium:states(3S1) = 100553',
             'Bottomonium:O(3S1)[3S1(1)] = 4.63',
             'Bottomonium:O(3S1)[3S1(8)] = 0.045',
             'Bottomonium:O(3S1)[1S0(8)] = 0.06',
@@ -90,7 +90,7 @@ upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
 # Next two muon filter are derived from muon reconstruction
 
 muminusfilter = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(0),
+    MotherID = cms.untracked.int32(100553),
     MinPt = cms.untracked.vdouble(2.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
@@ -101,7 +101,7 @@ muminusfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 muplusfilter = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(0),
+    MotherID = cms.untracked.int32(100553),
     MinPt = cms.untracked.vdouble(2.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
@@ -111,7 +111,7 @@ muplusfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(13)
 )
 
-#  two pion filter 
+#  two pion filter
 
 piminusfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(0),
@@ -136,4 +136,3 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 ProductionFilterSequence = cms.Sequence(generator*pwaveIDfilter*upsIDfilter*piminusfilter*piplusfilter*muminusfilter*muplusfilter)
-
