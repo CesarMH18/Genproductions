@@ -62,7 +62,7 @@ End
             '100553:onMode = off',
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
-                                    'pythia8CP5Settings',
+                                    'pythia8CUEP8M1Settings',
                                     'processParameters'
                                     )
     )
