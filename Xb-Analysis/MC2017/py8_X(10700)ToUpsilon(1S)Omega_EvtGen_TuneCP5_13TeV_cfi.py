@@ -66,7 +66,7 @@ End
             'Bottomonium:qg2bbbar(3S1)[3PJ(8)]q = on',
             'Bottomonium:qqbar2bbbar(3S1)[3PJ(8)]g = on',
             'Bottomonium:gg2bbbar(3S1)[3S1(1)]gm = on',
-            'PhaseSpace:pTHatMin = 2.',
+            'PhaseSpace:pTHatMin =0.0',
             '100553:m0 = 10.700000',
             '100553:onMode = off'
             ),
@@ -80,7 +80,7 @@ End
 
 upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(553),
-    MinPt = cms.untracked.vdouble(1.0),
+    MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
     Status = cms.untracked.vint32(2)
@@ -88,7 +88,7 @@ upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
 
 omegaIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(223),
-    MinPt = cms.untracked.vdouble(1.0),
+    MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
     MaxEta = cms.untracked.vdouble(2.4),
     Status = cms.untracked.vint32(2)
@@ -98,7 +98,7 @@ omegaIDfilter = cms.EDFilter("MCSingleParticleFilter",
 
 muonsfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(553),
-    MinPt = cms.untracked.vdouble(1.0,1.0),
+    MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
     MinEta = cms.untracked.vdouble(-2.4,-2.4),
