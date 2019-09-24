@@ -1,9 +1,8 @@
 # cfg file for Ups(2S) -> Ups(1S) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
 
-
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
-from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
+from Configuration.Generator.Pythia8CUEP8M1Settings_cfi import *
 
 generator = cms.EDFilter("Pythia8GeneratorFilter",
     pythiaPylistVerbosity = cms.untracked.int32(0),
