@@ -14,14 +14,14 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
             list_forced_decays = cms.vstring('myX'),
-            operates_on_particles = cms.vint32(200553),
+            operates_on_particles = cms.vint32(100553),
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
-Particle Upsilon(3S) 10.7000000 0.000000
+Particle Upsilon(2S) 10.7000000 0.000000
 Particle Upsilon 9.4603000 0.00005402
 
-Alias myX Upsilon(3S)
+Alias myX Upsilon(2S)
 Alias myUpsilon Upsilon
 
 Decay myUpsilon
@@ -50,11 +50,11 @@ End
         pythia8CommonSettingsBlock,
 	pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
-            'Bottomonium:states(3S1) = 200553',
-            'Bottomonium:O(3S1)[3S1(1)] = 3.54',
-            'Bottomonium:O(3S1)[3S1(8)] = 0.075',
-            'Bottomonium:O(3S1)[1S0(8)] = 0.1',
-            'Bottomonium:O(3S1)[3P0(8)] = 0.1',
+            'Bottomonium:states(3S1) = 100553',
+            'Bottomonium:O(3S1)[3S1(1)] = 4.63',
+            'Bottomonium:O(3S1)[3S1(8)] = 0.045',
+            'Bottomonium:O(3S1)[1S0(8)] = 0.06',
+            'Bottomonium:O(3S1)[3P0(8)] = 0.06',
             'Bottomonium:gg2bbbar(3S1)[3S1(1)]g = on',
             'Bottomonium:gg2bbbar(3S1)[3S1(8)]g = on',
             'Bottomonium:qg2bbbar(3S1)[3S1(8)]q = on',
@@ -67,8 +67,8 @@ End
             'Bottomonium:qqbar2bbbar(3S1)[3PJ(8)]g = on',
             'Bottomonium:gg2bbbar(3S1)[3S1(1)]gm = on',
             'PhaseSpace:pTHatMin = 0.0',
-            '200553:m0 = 10.7000000',
-            '200553:onMode = off'
+            '100553:m0 = 10.7000000',
+            '100553:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
@@ -108,7 +108,7 @@ muonsfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 pionsfilter = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(200553),
+    MotherID = cms.untracked.int32(100553),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(223),
     ChargeConjugation = cms.untracked.bool(False),
@@ -119,4 +119,5 @@ pionsfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 
-ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter)
+#ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter)
+ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter)
