@@ -72,16 +72,16 @@ End
 pwaveIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(100553),
     MinPt = cms.untracked.vdouble(0.0),
-    MinEta = cms.untracked.vdouble(-9.),
-    MaxEta = cms.untracked.vdouble(9.),
+    MinEta = cms.untracked.vdouble(-10.),
+    MaxEta = cms.untracked.vdouble(10.),
     Status = cms.untracked.vint32(2)
 )
 
 upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(553),
     MinPt = cms.untracked.vdouble(0.0),
-    MinEta = cms.untracked.vdouble(-9.),
-    MaxEta = cms.untracked.vdouble(9.),
+    MinEta = cms.untracked.vdouble(-10.),
+    MaxEta = cms.untracked.vdouble(10.),
     Status = cms.untracked.vint32(2)
 )
 
@@ -92,8 +92,8 @@ muminusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(0.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-9.),
-    MaxEta = cms.untracked.vdouble(9.),
+    MinEta = cms.untracked.vdouble(-10.),
+    MaxEta = cms.untracked.vdouble(10.),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(-13)
 )
@@ -103,8 +103,8 @@ muplusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(0.0),
     ParticleID = cms.untracked.int32(553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-9.0),
-    MaxEta = cms.untracked.vdouble(9.0),
+    MinEta = cms.untracked.vdouble(-10.0),
+    MaxEta = cms.untracked.vdouble(10.0),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(13)
 )
@@ -116,8 +116,8 @@ piminusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(0.0),
     ParticleID = cms.untracked.int32(100553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-9.0),
-    MaxEta = cms.untracked.vdouble(9.0),
+    MinEta = cms.untracked.vdouble(-10.0),
+    MaxEta = cms.untracked.vdouble(10.0),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(-211)
 )
@@ -127,8 +127,8 @@ piplusfilter = cms.EDFilter("PythiaDauVFilter",
     MinPt = cms.untracked.vdouble(0.0),
     ParticleID = cms.untracked.int32(100553),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-9.0),
-    MaxEta = cms.untracked.vdouble(9.0),
+    MinEta = cms.untracked.vdouble(-10.0),
+    MaxEta = cms.untracked.vdouble(10.0),
     NumberDaughters = cms.untracked.int32(1),
     DaughterIDs = cms.untracked.vint32(211)
 )
