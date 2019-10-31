@@ -13,18 +13,18 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            list_forced_decays = cms.vstring('myX'),
-            operates_on_particles = cms.vint32(200553),
+            list_forced_decays = cms.vstring('myX_b'),
+            operates_on_particles = cms.vint32(10551),
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
 Particle Upsilon 9.4603000 0.00005402
 Particle Upsilon(2S) 10.023260 0.00003198
-Particle Upsilon(3S) 10.700000 0.00000
+Particle chi_b0 10.700000 0.00000
 
 Alias myUpsilon Upsilon
 Alias myUpsilon2S Upsilon(2S)
-Alias myX Upsilon(3S)
+Alias myX_b chi_b0
 
 Decay myUpsilon
 1.0   mu+  mu-          PHOTOS  VLL;
@@ -38,7 +38,7 @@ Decay pi0
 1.0   gamma   gamma  PHSP;
 Enddecay
 
-Decay myX
+Decay myX_b
 1.0   myUpsilon2S  pi0   PHSP;
 Enddecay
 
@@ -52,25 +52,17 @@ End
         pythia8CommonSettingsBlock,
 	pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
-            'Bottomonium:states(3S1) = 200553',
-            'Bottomonium:O(3S1)[3S1(1)] = 3.54',
-            'Bottomonium:O(3S1)[3S1(8)] = 0.075',
-            'Bottomonium:O(3S1)[1S0(8)] = 0.1',
-            'Bottomonium:O(3S1)[3P0(8)] = 0.1',
-            'Bottomonium:gg2bbbar(3S1)[3S1(1)]g = on',
-            'Bottomonium:gg2bbbar(3S1)[3S1(8)]g = on',
-            'Bottomonium:qg2bbbar(3S1)[3S1(8)]q = on',
-            'Bottomonium:qqbar2bbbar(3S1)[3S1(8)]g = on',
-            'Bottomonium:gg2bbbar(3S1)[1S0(8)]g = on',
-            'Bottomonium:qg2bbbar(3S1)[1S0(8)]q = on',
-            'Bottomonium:qqbar2bbbar(3S1)[1S0(8)]g = on',
-            'Bottomonium:gg2bbbar(3S1)[3PJ(8)]g = on',
-            'Bottomonium:qg2bbbar(3S1)[3PJ(8)]q = on',
-            'Bottomonium:qqbar2bbbar(3S1)[3PJ(8)]g = on',
-            'Bottomonium:gg2bbbar(3S1)[3S1(1)]gm = on',
-            'PhaseSpace:pTHatMin = 2.',
-            '200553:m0 = 10.700000',
-            '200553:onMode = off'
+            'Bottomonium:states(3PJ) = 10551',
+            'Bottomonium:O(3PJ)[3P0(1)] = 0.085',
+            'Bottomonium:O(3PJ)[3S1(8)] = 0.04',
+            'Bottomonium:gg2bbbar(3PJ)[3PJ(1)]g = on',
+            'Bottomonium:qg2bbbar(3PJ)[3PJ(1)]q = on',
+            'Bottomonium:qqbar2bbbar(3PJ)[3PJ(1)]g = on',
+            'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on',
+            'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
+            'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
+            '10551:m0 = 10.700000',
+            '10551:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
@@ -111,7 +103,7 @@ muonsfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 pionsfilter = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(200553),
+    MotherID = cms.untracked.int32(10551),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(100553),
     ChargeConjugation = cms.untracked.bool(False),
