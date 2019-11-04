@@ -35,7 +35,7 @@ Decay myUpsilon2S
 Enddecay
 
 Decay pi0
-1.0   gamma   gamma  PHSP;
+1.0   gamma gamma  PHSP;
 Enddecay
 
 Decay myX_b
