@@ -29,7 +29,7 @@ Decay myUpsilon
 Enddecay
 
 Decay pi0
-1.0   gamma   gamma  PHSP;
+1.0   gamma gamma  PHSP;
 Enddecay
 
 Decay omega
@@ -110,6 +110,17 @@ pionsfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(-211,211)
 )
 
+pi0filter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(223),
+    MinPt = cms.untracked.vdouble(0.0,0.0),
+    ParticleID = cms.untracked.int32(111),
+    ChargeConjugation = cms.untracked.bool(False),
+    MinEta = cms.untracked.vdouble(-2.4,-2.4),
+    MaxEta = cms.untracked.vdouble(2.4,2.4),
+    NumberDaughters = cms.untracked.int32(2),
+    DaughterIDs = cms.untracked.vint32(22,22)
+)
 
-ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter)
+
+ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter*pi0filter)
 #ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter*pionsfilter)
