@@ -1,4 +1,4 @@
-# cfg file for X(10450) -> Ups(2S) gamma. Masses and widths are matched between pythia, evtgen and PDG 2016
+# cfg file for X(10700) -> Ups(2S) pion0. Masses and widths are matched between pythia, evtgen and PDG 2016
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
@@ -77,6 +77,7 @@ Xbfilter = cms.EDFilter("MCSingleParticleFilter",
 )
 
 
+
 ups2Sfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(100553),
     MinPt = cms.untracked.vdouble(2.0),
@@ -117,7 +118,7 @@ pionsfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(-211,211)
 )
 
-photonfilter = cms.EDFilter("PythiaDauVFilter",
+photonsfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(0),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(10551),
@@ -129,4 +130,4 @@ photonfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 
-ProductionFilterSequence = cms.Sequence(generator*Xbfilter*pi0filter*ups2Sfilter*ups1Sfilter*photonfilter*muonsfilter*pionsfilter)
+ProductionFilterSequence = cms.Sequence(generator*Xbfilter*ups2Sfilter*ups1Sfilter*photonsfilter*muonsfilter*pionsfilter)
