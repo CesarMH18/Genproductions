@@ -68,9 +68,15 @@ End
                                     )
     )
 )
+Xbfilter = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(10551),
+    MinPt = cms.untracked.vdouble(2.0),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
+    Status = cms.untracked.vint32(2)
+)
 
-
-upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
+ups1Sfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(553),
     MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
@@ -78,7 +84,7 @@ upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
     Status = cms.untracked.vint32(2)
 )
 
-omegaIDfilter = cms.EDFilter("MCSingleParticleFilter",
+omegafilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(223),
     MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
@@ -99,18 +105,18 @@ muonsfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(-13,13)
 )
 
-pionsfilter = cms.EDFilter("PythiaDauVFilter",
+omegadecayfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(10551),
-    MinPt = cms.untracked.vdouble(0.0,0.0),
+    MinPt = cms.untracked.vdouble(0.0,0.0,0.0),
     ParticleID = cms.untracked.int32(223),
     ChargeConjugation = cms.untracked.bool(False),
-    MinEta = cms.untracked.vdouble(-2.4,-2.4),
-    MaxEta = cms.untracked.vdouble(2.4,2.4),
-    NumberDaughters = cms.untracked.int32(2),
-    DaughterIDs = cms.untracked.vint32(-211,211)
+    MinEta = cms.untracked.vdouble(-2.4,-2.4,-2.4),
+    MaxEta = cms.untracked.vdouble(2.4,2.4,2.4),
+    NumberDaughters = cms.untracked.int32(3),
+    DaughterIDs = cms.untracked.vint32(-211,211,111)
 )
 
-pi0filter = cms.EDFilter("PythiaDauVFilter",
+photonsfilter = cms.EDFilter("PythiaDauVFilter",
     MotherID = cms.untracked.int32(223),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(111),
@@ -122,5 +128,5 @@ pi0filter = cms.EDFilter("PythiaDauVFilter",
 )
 
 
-ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*omegaIDfilter*muonsfilter*pionsfilter*pi0filter)
+ProductionFilterSequence = cms.Sequence(generator*Xbfilter*omegafilter*ups1Sfilter*omegadecayfilter*photonsfilter*muonsfilter)
 #ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter*pionsfilter)
