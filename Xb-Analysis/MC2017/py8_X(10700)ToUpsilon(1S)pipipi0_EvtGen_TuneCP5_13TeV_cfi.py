@@ -65,8 +65,15 @@ End
     )
 )
 
+Xbfilter = cms.EDFilter("MCSingleParticleFilter",
+    ParticleID = cms.untracked.vint32(10551),
+    MinPt = cms.untracked.vdouble(2.0),
+    MinEta = cms.untracked.vdouble(-2.4),
+    MaxEta = cms.untracked.vdouble(2.4),
+    Status = cms.untracked.vint32(2)
+)
 
-upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
+ups1Sfilter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(553),
     MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
@@ -74,7 +81,7 @@ upsIDfilter = cms.EDFilter("MCSingleParticleFilter",
     Status = cms.untracked.vint32(2)
 )
 
-pi0IDfilter = cms.EDFilter("MCSingleParticleFilter",
+pi0filter = cms.EDFilter("MCSingleParticleFilter",
     ParticleID = cms.untracked.vint32(111),
     MinPt = cms.untracked.vdouble(0.0),
     MinEta = cms.untracked.vdouble(-2.4),
@@ -106,8 +113,8 @@ pionsfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(-211,211)
 )
 
-pi0filtergamma = cms.EDFilter("PythiaDauVFilter",
-    MotherID = cms.untracked.int32(223),
+photonsfilter = cms.EDFilter("PythiaDauVFilter",
+    MotherID = cms.untracked.int32(10551),
     MinPt = cms.untracked.vdouble(0.0,0.0),
     ParticleID = cms.untracked.int32(111),
     ChargeConjugation = cms.untracked.bool(False),
@@ -117,5 +124,5 @@ pi0filtergamma = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(22,22)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*pi0IDfilter*muonsfilter*pionsfilter*pi0filtergamma)
+ProductionFilterSequence = cms.Sequence(generator*Xbfilter*pi0filter*ups1Sfilter*photonsfilter*muonsfilter*pionsfilter)
 #ProductionFilterSequence = cms.Sequence(generator*upsIDfilter*muonsfilter*pionsfilter)
