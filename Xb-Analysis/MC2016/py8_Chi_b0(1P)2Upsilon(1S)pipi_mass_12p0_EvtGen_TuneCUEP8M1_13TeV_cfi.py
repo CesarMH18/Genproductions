@@ -1,5 +1,5 @@
 # cfg file for X_b -> Ups(1S) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
-#The mass of the chi_b0(1P) is set to 11.1 GeV (desired resonant mass)
+#The mass of the chi_b0(1P) is set to 12.0 GeV (desired resonant mass)
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
