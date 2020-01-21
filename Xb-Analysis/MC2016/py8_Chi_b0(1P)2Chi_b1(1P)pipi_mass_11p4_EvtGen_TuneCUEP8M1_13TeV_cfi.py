@@ -1,5 +1,5 @@
 # cfg file for X_b -> Chib(1P) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
-#The mass of the chi_b0(1P) is set to 10.4 GeV (desired resonant mass)
+#The mass of the chi_b0(1P) is set to 11.4 GeV (desired resonant mass)
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
@@ -21,7 +21,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 """
 Particle Upsilon 9.4603000 0.00005402
 Particle chi_b1  9.8927800 0.00000
-Particle chi_b0  10.400000 0.00000
+Particle chi_b0  11.400000 0.00000
 
 Alias myUpsilon Upsilon
 Alias mychi_b1 chi_b1
@@ -58,7 +58,7 @@ End
             'Bottomonium:gg2bbbar(3PJ)[3S1(8)]g = on',
             'Bottomonium:qg2bbbar(3PJ)[3S1(8)]q = on',
             'Bottomonium:qqbar2bbbar(3PJ)[3S1(8)]g = on',
-            '10551:m0 = 10.400000',
+            '10551:m0 = 11.400000',
             '10551:onMode = off'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
