@@ -30,7 +30,7 @@ Decay myUpsilon
 Enddecay
 
 Decay myX_b
-1.0   myUpsilon pi+ pi-  YMST0YNSPIPICLEO -0753 0.000;
+1.0   myUpsilon pi+ pi-  YMST0YNSPIPICLEO -0.753 0.000;
 Enddecay
 
 End
