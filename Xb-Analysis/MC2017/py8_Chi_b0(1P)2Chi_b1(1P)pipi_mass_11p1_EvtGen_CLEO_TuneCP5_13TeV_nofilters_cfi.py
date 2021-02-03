@@ -36,7 +36,7 @@ Decay mychi_b1
 Enddecay
 
 Decay myX_b
-1.0   mychi_b1 pi+ pi-  YMST0YNSPIPICLEO -0.753 0.000;
+1.0   mychi_b1 pi+ pi-  YMSTOYNSPIPICLEO -0.753 0.000;
 Enddecay
 
 End
