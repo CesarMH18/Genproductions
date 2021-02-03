@@ -29,7 +29,7 @@ Decay myUps
 Enddecay
 
 Decay myUps2S
-1.0   myUps pi+ pi- YMST0YNSPIPICLEO -0.753 0.000;
+1.0   myUps pi+ pi- YMSTOYNSPIPICLEO -0.753 0.000;
 Enddecay
 
 End
