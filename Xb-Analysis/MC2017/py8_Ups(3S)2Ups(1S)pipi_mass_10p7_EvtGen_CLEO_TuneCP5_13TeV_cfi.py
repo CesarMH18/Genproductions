@@ -1,4 +1,4 @@
-# cfg file for Ups(3S) -> Ups(1S) pion+ pion-. Masses and widths are matched between pythia, evtgen and PDG 2016
+# cfg file for Ups(3S) -> Ups(1S) pion+ pio:wqn-. Masses and widths are matched between pythia, evtgen and PDG 2016
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
@@ -18,7 +18,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
-Particle Upsilon(3S)  10.7000    0.00002032
+Particle Upsilon(3S)  10.7000    0.00000000
 Particle Upsilon      9.4603000   0.00005402
 
 Alias myUps3S Upsilon(3S)

@@ -18,7 +18,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             convertPythiaCodes = cms.untracked.bool(False),
             user_decay_embedded= cms.vstring(
 """
-Particle Upsilon(3S)  10.3552    0.00002032
+Particle Upsilon(3S)  10.3552    0.00000000
 Particle Upsilon      9.4603000   0.00005402
 
 Alias myUps3S Upsilon(3S)
